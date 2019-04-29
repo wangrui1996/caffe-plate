@@ -1,0 +1,151 @@
+I0419 15:37:54.429158 31531 caffe.cpp:218] Using GPUs 0
+I0419 15:37:54.483610 31531 caffe.cpp:223] GPU 0: TITAN Xp
+I0419 15:37:54.706565 31531 solver.cpp:44] Initializing solver from parameters: 
+train_net: "models/vehicle/plate/train.prototxt"
+test_net: "models/vehicle/plate/test.prototxt"
+test_iter: 2
+test_interval: 500
+base_lr: 4e-06
+display: 50
+max_iter: 1200000
+lr_policy: "multistep"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "models/vehicle/plate/vehicle_plate"
+solver_mode: GPU
+device_id: 0
+debug_info: false
+train_state {
+  level: 0
+  stage: ""
+}
+snapshot_after_train: true
+test_initialization: true
+average_loss: 50
+stepvalue: 80000
+stepvalue: 100000
+stepvalue: 120000
+iter_size: 1
+type: "SGD"
+I0419 15:37:54.706756 31531 solver.cpp:77] Creating training net from train_net file: models/vehicle/plate/train.prototxt
+I0419 15:37:54.706925 31531 net.cpp:53] Initializing net from parameters: 
+name: "vehicle_plate_train"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "data"
+  type: "Python"
+  top: "data"
+  top: "label"
+  python_param {
+    module: "pythonLayer"
+    layer: "DataLayer"
+    param_str: "{\'expand_ratio\': 1.1, \'label_txt\': \'data/plate/trainval.txt\', \'cutting_ratio\': 0.3, \'batch_size\': 256, \'height\': 30, \'width\': 80, \'train\': True, \'prob\': 0.7}"
+  }
+}
+layer {
+  name: "indicator"
+  type: "ContinuationIndicator"
+  top: "indicator"
+  continuation_indicator_param {
+    time_step: 80
+    batch_size: 512
+  }
+}
+layer {
+  name: "permuted_data"
+  type: "Permute"
+  bottom: "data"
+  top: "permuted_data"
+  permute_param {
+    order: 3
+    order: 0
+    order: 1
+    order: 2
+  }
+}
+layer {
+  name: "lstm1"
+  type: "LSTM"
+  bottom: "permuted_data"
+  bottom: "indicator"
+  top: "lstm1"
+  recurrent_param {
+    num_output: 100
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "lstm2"
+  type: "LSTM"
+  bottom: "lstm1"
+  bottom: "indicator"
+  top: "lstm2"
+  recurrent_param {
+    num_output: 100
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "lstm2"
+  top: "fc1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 11
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    axis: 2
+  }
+}
+layer {
+  name: "ctc_loss"
+  type: "CtcLoss"
+  bottom: "fc1"
+  bottom: "label"
+  top: "ctc_loss"
+  loss_weight: 1
+  ctc_loss_param {
+    alphabet_size: 11
+    time_step: 80
+    blank_label: 10
+  }
+}
+I0419 15:37:54.707003 31531 layer_factory.hpp:77] Creating layer data
+I0419 15:37:55.205689 31531 net.cpp:86] Creating Layer data
+I0419 15:37:55.205720 31531 net.cpp:382] data -> data
+I0419 15:37:55.205739 31531 net.cpp:382] data -> label
+Traceback (most recent call last):
+  File "/home/rui/repos/warpctc-caffe/python/pythonLayer.py", line 59, in setup
+    self.indices = open(self.label_txt, 'r').read().splitlines()
+IOError: [Errno 2] No such file or directory: 'data/plate/trainval.txt'

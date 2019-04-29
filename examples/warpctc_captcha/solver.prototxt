@@ -14,3 +14,4 @@ snapshot: 25000
 snapshot_prefix: "./examples/warpctc_captcha/model/lstm_ctc"
 solver_mode: GPU
 clip_gradients: 5000
+device_id: 1

@@ -20,7 +20,6 @@ namespace caffe {
       const Dtype* const activations = bottom[0]->gpu_data();
       Dtype* gradients = bottom[0]->mutable_gpu_diff();
       CHECK(gradients != NULL) << "Oops, gradients is null";
-
       FlattenLabels(bottom[1]);
       size_t size_bytes;
       CHECK_CTC_STATUS(get_workspace_size(label_lengths_.data(),

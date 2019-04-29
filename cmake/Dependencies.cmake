@@ -78,6 +78,7 @@ endif()
 if(USE_OPENCV)
   find_package(OpenCV QUIET COMPONENTS core highgui imgproc imgcodecs)
   if(NOT OpenCV_FOUND) # if not OpenCV 3.x, then imgcodecs are not found
+    set(OpenCV_DIR /home/rui/libs/opencv-3.4/opencv-3.4/build )
     find_package(OpenCV REQUIRED COMPONENTS core highgui imgproc)
   endif()
   include_directories(SYSTEM ${OpenCV_INCLUDE_DIRS})

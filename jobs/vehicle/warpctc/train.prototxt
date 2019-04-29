@@ -1,0 +1,106 @@
+name: "vehicle_warpctc_train"
+layer {
+  name: "data"
+  type: "Python"
+  top: "data"
+  top: "label"
+  python_param {
+    module: "pythonLayer"
+    layer: "DataLayer"
+    param_str: "{\'expand_ratio\': 1.1, \'label_txt\': \'data/warpctc/trainval.txt\', \'cutting_ratio\': 0.3, \'batch_size\': 256, \'height\': 30, \'width\': 80, \'train\': True, \'prob\': 0.7}"
+  }
+}
+layer {
+  name: "indicator"
+  type: "ContinuationIndicator"
+  top: "indicator"
+  continuation_indicator_param {
+    time_step: 80
+    batch_size: 512
+  }
+}
+layer {
+  name: "permuted_data"
+  type: "Permute"
+  bottom: "data"
+  top: "permuted_data"
+  permute_param {
+    order: 3
+    order: 0
+    order: 1
+    order: 2
+  }
+}
+layer {
+  name: "lstm1"
+  type: "LSTM"
+  bottom: "permuted_data"
+  bottom: "indicator"
+  top: "lstm1"
+  recurrent_param {
+    num_output: 100
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "lstm2"
+  type: "LSTM"
+  bottom: "lstm1"
+  bottom: "indicator"
+  top: "lstm2"
+  recurrent_param {
+    num_output: 100
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "lstm2"
+  top: "fc1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 11
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    axis: 2
+  }
+}
+layer {
+  name: "ctc_loss"
+  type: "CtcLoss"
+  bottom: "fc1"
+  bottom: "label"
+  top: "ctc_loss"
+  loss_weight: 1.0
+  ctc_loss_param {
+    alphabet_size: 11
+    time_step: 80
+    blank_label: 10
+  }
+}
+

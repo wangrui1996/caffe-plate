@@ -8,7 +8,7 @@
 
 #include "caffe/layers/loss_layer.hpp"
 #include "caffe/3rdparty/ctc.h"
-
+#include <numeric>
 namespace caffe {
 
 #define CHECK_CTC_STATUS(ret_status) do{ctcStatus_t status = ret_status; \

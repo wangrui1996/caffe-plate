@@ -1,0 +1,81 @@
+/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rui/repos/warpctc-caffe
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   system
+--   thread
+--   filesystem
+--   chrono
+--   date_time
+--   atomic
+-- Found gflags  (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libgflags.so)
+-- Found glog    (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libglog.so)
+-- Found PROTOBUF Compiler: /usr/bin/protoc
+-- HDF5: Using hdf5 compiler wrapper to determine C configuration
+-- HDF5: Using hdf5 compiler wrapper to determine CXX configuration
+-- Found lmdb    (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/liblmdb.so)
+-- Found LevelDB (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libleveldb.so)
+-- Found Snappy  (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libsnappy.so)
+-- CUDA detected: 10.0
+-- Found cuDNN: ver. 7.4.2 found (include: /usr/local/cuda/include, library: /usr/local/cuda/lib64/libcudnn.so)
+-- Added CUDA NVCC flags for: sm_61
+-- OpenCV found (/home/rui/libs/opencv-3.4/opencv-3.4/build)
+-- Found Atlas (include: /usr/include/x86_64-linux-gnu, library: /usr/lib/x86_64-linux-gnu/libatlas.so)
+-- NumPy ver. 1.16.2 found (include: /home/rui/.local/lib/python2.7/site-packages/numpy/core/include)
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   python
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- 
+-- ******************* Caffe Configuration Summary *******************
+-- General:
+--   Version           :   1.0.0-rc4
+--   Git               :   2375b217-dirty
+--   System            :   Linux
+--   C++ compiler      :   /usr/bin/c++
+--   Release CXX flags :   -O3 -DNDEBUG -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Debug CXX flags   :   -g -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Build type        :   Debug
+-- 
+--   BUILD_SHARED_LIBS :   ON
+--   BUILD_python      :   ON
+--   BUILD_matlab      :   OFF
+--   BUILD_docs        :   ON
+--   CPU_ONLY          :   OFF
+--   USE_OPENCV        :   ON
+--   USE_LEVELDB       :   ON
+--   USE_LMDB          :   ON
+--   USE_NCCL          :   OFF
+--   ALLOW_LMDB_NOLOCK :   OFF
+-- 
+-- Dependencies:
+--   BLAS              :   Yes (Atlas)
+--   Boost             :   Yes (ver. 1.65)
+--   glog              :   Yes
+--   gflags            :   Yes
+--   protobuf          :   Yes (ver. 3.0.0)
+--   lmdb              :   Yes (ver. 0.9.21)
+--   LevelDB           :   Yes (ver. 1.20)
+--   Snappy            :   Yes (ver. ..)
+--   OpenCV            :   Yes (ver. 3.4.6)
+--   CUDA              :   Yes (ver. 10.0)
+-- 
+-- NVIDIA CUDA:
+--   Target GPU(s)     :   Auto
+--   GPU arch(s)       :   sm_61
+--   cuDNN             :   Yes (ver. 7.4.2)
+-- 
+-- Python:
+--   Interpreter       :   /usr/bin/python2.7 (ver. 2.7.15)
+--   Libraries         :   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.15rc1)
+--   NumPy             :   /home/rui/.local/lib/python2.7/site-packages/numpy/core/include (ver 1.16.2)
+-- 
+-- Documentaion:
+--   Doxygen           :   No
+--   config_file       :   
+-- 
+-- Install:
+--   Install path      :   /home/rui/repos/warpctc-caffe/cmake-build-debug/install
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rui/repos/warpctc-caffe/cmake-build-debug
