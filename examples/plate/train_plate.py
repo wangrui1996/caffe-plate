@@ -4,7 +4,7 @@ from google.protobuf import text_format
 from caffe import layers as L
 from caffe import params as P
 from caffe.proto import caffe_pb2
-from caffe.model_libs import WarpctcNetBody
+from caffe.model_libs import PlateNetBody
 
 def check_if_exist(path):
   return os.path.exists(path)
@@ -27,7 +27,7 @@ caffe_root = os.getcwd()
 # Modify the job name if you want.
 job_name = "vehicle"
 
-dataset_name = "captcha"
+dataset_name = "plate"
 # Set true if you want to start training right after generating all files.
 run_soon = True
 # Set true if you want to load from most recently saved snapshot.
@@ -42,7 +42,6 @@ remove_old_models = False
 
 train_txt = "data/{}/trainval.txt".format(dataset_name)
 test_txt = "data/{}/test.txt".format(dataset_name)
-label_map_file = 'data/{}/label_map.txt'.format(dataset_name)
 
 # Specify the batch sampler.
 blank_label = 10
@@ -94,7 +93,7 @@ job_file = "{}/{}.sh".format(job_dir, model_name)
 
 
 
-num_classes = 10
+num_classes = 33
 neg_pos_ratio = 3.
 loc_weight = (neg_pos_ratio + 1.) / 4.
 
@@ -152,7 +151,6 @@ solver_param = {
 # Check file.
 check_if_exist(train_txt)
 check_if_exist(test_txt)
-check_if_exist(label_map_file)
 #check_if_exist(pretrain_model)
 make_if_not_exist(save_dir)
 make_if_not_exist(job_dir)
@@ -168,14 +166,14 @@ params_str['train'] = True
 params_str['label_txt'] = train_txt
 net.data, net.label = L.Python(name="data", ntop=2, python_param={
   'module': "pythonLayer",
-  'layer':  "WarpctcDataLayer",
+  'layer':  "PlateDataLayer",
   'param_str': str(params_str)
 })
-body_layer = WarpctcNetBody(net, net.data, resize_width, num_classes)
+body_layer = PlateNetBody(net, net.data, resize_width, num_classes)
 ctc_kwargs = {
   'loss_weight': [1.0]
 }
-net.ctc_loss = L.CtcLoss(body_layer.fc1, net.label, blank_label=blank_label, alphabet_size=11, time_step=resize_width, **ctc_kwargs)
+net.ctc_loss = L.CtcLoss(body_layer.fc1, net.label, blank_label=blank_label, alphabet_size=num_classes+1, time_step=resize_width, **ctc_kwargs)
 with open(train_net_file, 'w') as f:
   print('name: "{}_train"'.format(model_name), file=f)
   print(net.to_proto(), file=f)
@@ -191,15 +189,15 @@ params_str['train'] = False
 params_str['label_txt'] = test_txt
 net.data, net.label = L.Python(name="data", ntop=2, python_param={
   'module': "pythonLayer",
-  'layer':  "WarpctcDataLayer",
+  'layer':  "PlateDataLayer",
   'param_str': str(params_str)
 })
 
-body_layer = WarpctcNetBody(net, net.data, resize_width, num_classes)
+body_layer = PlateNetBody(net, net.data, resize_width, num_classes)
 ctc_kwargs = {
   'loss_weight': [1.0]
 }
-net.ctc_loss = L.CtcLoss(body_layer.fc1, net.label, blank_label=blank_label, alphabet_size=11, time_step=resize_width, **ctc_kwargs)
+net.ctc_loss = L.CtcLoss(body_layer.fc1, net.label, blank_label=blank_label, alphabet_size=num_classes+1, time_step=resize_width, **ctc_kwargs)
 net.premuted_fc = L.Permute(body_layer.fc1, order=[1,0,2])
 net.accuracy = L.LabelsequenceAccuracy(net.premuted_fc, net.label, blank_label=blank_label)
 
@@ -283,7 +281,6 @@ with open(job_file, 'w') as f:
 # Copy the python script to job_dir.
 py_file = os.path.abspath(__file__)
 shutil.copy(py_file, job_dir)
-
 # Run the job.
 os.chmod(job_file, stat.S_IRWXU)
 if run_soon:

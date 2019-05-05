@@ -265,3 +265,134 @@ class WarpctcDataLayer(caffe.Layer):
         return in_
 
 
+class PlateDataLayer(caffe.Layer):
+    """
+    Load (input image, label image) pairs from SIFT Flow
+    one-at-a-time while reshaping the net to preserve dimensions.
+
+    This data layer has three tops:
+
+    1. the data, pre-processed
+    2. the semantic labels 0-32 and void 255
+    3. the geometric labels 0-2 and void 255
+
+    Use this to feed data to a fully convolutional network.
+    """
+
+    def setup(self, bottom, top):
+        """
+        Setup data layer according to parameters:
+
+        - siftflow_dir: path to SIFT Flow dir
+        - split: train / val / test
+        - randomize: load in random order (default: True)
+        - seed: seed for randomization (default: None / current time)
+
+        for semantic segmentation of object and geometric classes.
+
+        example: params = dict(siftflow_dir="/path/to/siftflow", split="val")
+        """
+        # config
+        params = eval(self.param_str)
+        self.label_txt = params['label_txt']
+        self.batch_size = params['batch_size']
+        self.height = int(params['height'])
+        self.width = int(params['width'])
+        self.random = params.get('randomize', True)
+        self.seed = params.get('seed', None)
+        # expand ratio
+        # three tops: data, semantic, geometric
+        if len(top) != 2:
+            raise Exception("Need to define two tops: data, and geometric label.")
+        # data layers have no bottoms
+        if len(bottom) != 0:
+            raise Exception("Do not define a bottom.")
+
+        # load indices for images and labels
+        self.indices = open(self.label_txt, 'r').read().splitlines()
+        random.shuffle(self.indices)
+        self.idx = 0
+
+        # make eval deterministic
+    #        if 'train' not in self.split:
+    #            self.random = False
+
+    # randomization: seed and pick
+    #        if self.random:
+    #            random.seed(self.seed)
+    #            self.idx_list = random.randint(0, len(self.indices)-1)
+
+    def reshape(self, bottom, top):
+        # load image + label image pair
+        #        self.data = self.load_image(self.indices[self.idx])
+        #        self.label = self.load_label(self.indices[self.idx])
+        # reshape tops to fit (leading 1 is for batch dimension)
+        top[0].reshape(self.batch_size, 3, self.height, self.width)
+        top[1].reshape(self.batch_size, 7)
+
+    def in_idx(self):
+        if self.idx >= len(self.indices):
+            if self.random:
+                random.seed(self.seed)
+                self.idx_list = [i for i in range(len(self.indices))]
+                random.shuffle(self.idx_list)
+            self.idx = 0
+            return self.idx
+        self.idx = self.idx + 1
+        return self.idx - 1
+    def getindices(self):
+        return self.indices[self.in_idx()]
+
+
+
+    def forward(self, bottom, top):
+        for i in range(self.batch_size):
+            for j in range(7):
+                top[1].data[i,j] = int(34)
+        # assign output
+        for i in range(self.batch_size):
+            label_line = self.getindices()
+            #       print i, label_line
+            img_path = label_line.split(" ")[0]
+            label = img_path.split("/")[-1].split(".")[0]
+            roi_str = label.split("-")[2]
+            roi = int(roi_str.split('_')[0].split('&')[0]), int(roi_str.split('_')[0].split('&')[1]), int(roi_str.split('_')[1].split('&')[0]), int(roi_str.split('_')[1].split('&')[1])
+            label_str = label.split("-")[-3]
+            label = [int(l) for l in label_str.split("_")]
+        #    print roi_str, label_str, roi, label
+            top[0].data[i, :, :, :] = self.load_image(img_path, roi)
+            for j in range(len(label)):
+                top[1].data[i, j] = int(label[j])
+    #         cv2.waitKey(0)
+    #      exit(1)
+
+
+
+
+
+
+    def backward(self, top, propagate_down, bottom):
+        pass
+
+    def load_image(self, idx, roi):
+        """
+        Load input image and preprocess for Caffe:
+        - cast to float
+        - switch channels RGB -> BGR
+        - subtract mean
+        - transpose to channel x height x width order
+        """
+
+
+        img = caffe.io.load_image(idx)
+        img = img[roi[1]:roi[3], roi[0]:roi[2], :]
+     #   cv2.imshow("demo", img)
+     #   cv2.waitKey(0)
+
+        img = caffe.io.resize(img, (self.height, self.width, 3))
+        #        cv2.imshow("demo", img)
+        #      cv2.waitKey(0)
+        in_ = np.transpose(img, (2,0,1))
+        return in_
+
+

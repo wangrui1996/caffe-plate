@@ -87,6 +87,19 @@ layer {
   }
 }
 layer {
+  name: "ctc_loss"
+  type: "CtcLoss"
+  bottom: "fc1"
+  bottom: "label"
+  top: "ctc_loss"
+  loss_weight: 1.0
+  ctc_loss_param {
+    alphabet_size: 11
+    time_step: 80
+    blank_label: 10
+  }
+}
+layer {
   name: "premuted_fc"
   type: "Permute"
   bottom: "fc1"

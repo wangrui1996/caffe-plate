@@ -6,8 +6,8 @@ layer {
   top: "label"
   python_param {
     module: "pythonLayer"
-    layer: "DataLayer"
-    param_str: "{\'expand_ratio\': 1.1, \'label_txt\': \'data/plate/trainval.txt\', \'cutting_ratio\': 0.3, \'batch_size\': 256, \'height\': 30, \'width\': 80, \'train\': False, \'prob\': 0.7}"
+    layer: "PlateDataLayer"
+    param_str: "{\'width\': 80, \'label_txt\': \'data/plate/test.txt\', \'train\': False, \'batch_size\': 512, \'height\': 30}"
   }
 }
 layer {
@@ -79,7 +79,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 11
+    num_output: 34
     weight_filler {
       type: "xavier"
     }
@@ -88,6 +88,19 @@ layer {
       value: 0
     }
     axis: 2
+  }
+}
+layer {
+  name: "ctc_loss"
+  type: "CtcLoss"
+  bottom: "fc1"
+  bottom: "label"
+  top: "ctc_loss"
+  loss_weight: 1.0
+  ctc_loss_param {
+    alphabet_size: 34
+    time_step: 80
+    blank_label: 10
   }
 }
 layer {

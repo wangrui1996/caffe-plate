@@ -75,7 +75,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 11
+    num_output: 34
     weight_filler {
       type: "xavier"
     }
@@ -84,6 +84,19 @@ layer {
       value: 0
     }
     axis: 2
+  }
+}
+layer {
+  name: "ctc_loss"
+  type: "CtcLoss"
+  bottom: "fc1"
+  bottom: "label"
+  top: "ctc_loss"
+  loss_weight: 1.0
+  ctc_loss_param {
+    alphabet_size: 34
+    time_step: 80
+    blank_label: 10
   }
 }
 layer {

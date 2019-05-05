@@ -196,6 +196,10 @@ net.data, net.label = L.Python(name="data", ntop=2, python_param={
 })
 
 body_layer = WarpctcNetBody(net, net.data, resize_width, num_classes)
+ctc_kwargs = {
+  'loss_weight': [1.0]
+}
+net.ctc_loss = L.CtcLoss(body_layer.fc1, net.label, blank_label=blank_label, alphabet_size=11, time_step=resize_width, **ctc_kwargs)
 net.premuted_fc = L.Permute(body_layer.fc1, order=[1,0,2])
 net.accuracy = L.LabelsequenceAccuracy(net.premuted_fc, net.label, blank_label=blank_label)
 
