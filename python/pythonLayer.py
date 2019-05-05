@@ -347,6 +347,9 @@ class PlateDataLayer(caffe.Layer):
 
     def forward(self, bottom, top):
         label_data = 34*np.zeros([self.batch_size, 7], dtype=float)
+        label_lines = []
+        for i in range(self.batch_size):
+            label_lines.append(self.getindices())
         # assign output
         for i in range(self.batch_size):
             label_line = self.getindices()

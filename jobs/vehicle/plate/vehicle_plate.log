@@ -28869,3 +28869,35 @@ I0505 16:28:13.624820 32309 sgd_solver.cpp:105] Iteration 100, lr = 0.0001
 I0505 16:37:56.431761 32309 solver.cpp:219] Iteration 150 (0.0858026 iter/s, 582.733s/50 iters), loss = 18.2132
 I0505 16:37:56.431902 32309 solver.cpp:238]     Train net output #0: ctc_loss = 18.2132 (* 1 = 18.2132 loss)
 I0505 16:37:56.431912 32309 sgd_solver.cpp:105] Iteration 150, lr = 0.0001
+I0505 16:47:33.376754 32309 solver.cpp:219] Iteration 200 (0.0866667 iter/s, 576.923s/50 iters), loss = 17.6928
+I0505 16:47:33.376977 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.6928 (* 1 = 17.6928 loss)
+I0505 16:47:33.376987 32309 sgd_solver.cpp:105] Iteration 200, lr = 0.0001
+I0505 16:51:30.389242 32309 sgd_solver.cpp:92] Gradient clipping: scaling down gradients (L2 norm 109259 > 5000) by scale factor 0.0457629
+I0505 16:56:59.785101 32309 solver.cpp:219] Iteration 250 (0.0882798 iter/s, 566.381s/50 iters), loss = 17.5323
+I0505 16:56:59.785205 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.5323 (* 1 = 17.5323 loss)
+I0505 16:56:59.785212 32309 sgd_solver.cpp:105] Iteration 250, lr = 0.0001
+I0505 17:06:29.061694 32309 solver.cpp:219] Iteration 300 (0.0878361 iter/s, 569.242s/50 iters), loss = 17.4286
+I0505 17:06:29.061827 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.4286 (* 1 = 17.4286 loss)
+I0505 17:06:29.061836 32309 sgd_solver.cpp:105] Iteration 300, lr = 0.0001
+I0505 17:15:57.584698 32309 solver.cpp:219] Iteration 350 (0.0879517 iter/s, 568.494s/50 iters), loss = 17.1863
+I0505 17:15:57.584893 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.1863 (* 1 = 17.1863 loss)
+I0505 17:15:57.584900 32309 sgd_solver.cpp:105] Iteration 350, lr = 0.0001
+I0505 17:25:23.082067 32309 solver.cpp:219] Iteration 400 (0.0884156 iter/s, 565.511s/50 iters), loss = 17.2055
+I0505 17:25:23.082170 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.2055 (* 1 = 17.2055 loss)
+I0505 17:25:23.082176 32309 sgd_solver.cpp:105] Iteration 400, lr = 0.0001
+I0505 17:34:52.409133 32309 solver.cpp:219] Iteration 450 (0.0878253 iter/s, 569.312s/50 iters), loss = 17.0649
+I0505 17:34:52.409256 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.0649 (* 1 = 17.0649 loss)
+I0505 17:34:52.409265 32309 sgd_solver.cpp:105] Iteration 450, lr = 0.0001
+I0505 17:36:35.241386 32309 sgd_solver.cpp:92] Gradient clipping: scaling down gradients (L2 norm 8634.01 > 5000) by scale factor 0.579105
+I0505 17:44:09.294399 32309 solver.cpp:331] Iteration 500, Testing net (#0)
+I0505 17:44:32.331995 32309 solver.cpp:398]     Test net output #0: accuracy = 0
+I0505 17:44:32.332028 32309 solver.cpp:398]     Test net output #1: ctc_loss = 17.3447 (* 1 = 17.3447 loss)
+I0505 17:44:44.146013 32309 solver.cpp:219] Iteration 500 (0.0845006 iter/s, 591.712s/50 iters), loss = 17.3772
+I0505 17:44:44.146145 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.3772 (* 1 = 17.3772 loss)
+I0505 17:44:44.146157 32309 sgd_solver.cpp:105] Iteration 500, lr = 0.0001
+I0505 17:56:51.527534 32309 solver.cpp:219] Iteration 550 (0.0687409 iter/s, 727.369s/50 iters), loss = 17.2297
+I0505 17:56:51.530453 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.2297 (* 1 = 17.2297 loss)
+I0505 17:56:51.530462 32309 sgd_solver.cpp:105] Iteration 550, lr = 0.0001
+I0505 18:06:20.076189 32309 solver.cpp:219] Iteration 600 (0.0879456 iter/s, 568.533s/50 iters), loss = 17.1898
+I0505 18:06:20.076313 32309 solver.cpp:238]     Train net output #0: ctc_loss = 17.1898 (* 1 = 17.1898 loss)
+I0505 18:06:20.076321 32309 sgd_solver.cpp:105] Iteration 600, lr = 0.0001
