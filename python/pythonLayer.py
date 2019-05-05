@@ -346,9 +346,7 @@ class PlateDataLayer(caffe.Layer):
 
 
     def forward(self, bottom, top):
-        for i in range(self.batch_size):
-            for j in range(7):
-                top[1].data[i,j] = int(34)
+        label_data = 34*np.zeros([self.batch_size, 7], dtype=float)
         # assign output
         for i in range(self.batch_size):
             label_line = self.getindices()
@@ -362,7 +360,8 @@ class PlateDataLayer(caffe.Layer):
         #    print roi_str, label_str, roi, label
             top[0].data[i, :, :, :] = self.load_image(img_path, roi)
             for j in range(len(label)):
-                top[1].data[i, j] = int(label[j])
+                label_data[i,j] = label[j]
+        top[1].data[...] = label_data
     #         cv2.waitKey(0)
     #      exit(1)
 
