@@ -274,6 +274,32 @@ extract_features/fast:
 .PHONY : extract_features/fast
 
 #=============================================================================
+# Target rules for targets named convert_plateset
+
+# Build rule for target.
+convert_plateset: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 convert_plateset
+.PHONY : convert_plateset
+
+# fast build rule for target.
+convert_plateset/fast:
+	$(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/build
+.PHONY : convert_plateset/fast
+
+#=============================================================================
+# Target rules for targets named test_net
+
+# Build rule for target.
+test_net: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_net
+.PHONY : test_net
+
+# fast build rule for target.
+test_net/fast:
+	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
+.PHONY : test_net/fast
+
+#=============================================================================
 # Target rules for targets named device_query
 
 # Build rule for target.
@@ -300,17 +326,17 @@ convert_imageset/fast:
 .PHONY : convert_imageset/fast
 
 #=============================================================================
-# Target rules for targets named test_net
+# Target rules for targets named caffe.bin
 
 # Build rule for target.
-test_net: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_net
-.PHONY : test_net
+caffe.bin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 caffe.bin
+.PHONY : caffe.bin
 
 # fast build rule for target.
-test_net/fast:
-	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
-.PHONY : test_net/fast
+caffe.bin/fast:
+	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
+.PHONY : caffe.bin/fast
 
 #=============================================================================
 # Target rules for targets named net_speed_benchmark
@@ -402,19 +428,6 @@ upgrade_solver_proto_text: cmake_check_build_system
 upgrade_solver_proto_text/fast:
 	$(MAKE) -f tools/CMakeFiles/upgrade_solver_proto_text.dir/build.make tools/CMakeFiles/upgrade_solver_proto_text.dir/build
 .PHONY : upgrade_solver_proto_text/fast
-
-#=============================================================================
-# Target rules for targets named caffe.bin
-
-# Build rule for target.
-caffe.bin: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 caffe.bin
-.PHONY : caffe.bin
-
-# fast build rule for target.
-caffe.bin/fast:
-	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
-.PHONY : caffe.bin/fast
 
 #=============================================================================
 # Target rules for targets named classification
@@ -515,9 +528,11 @@ help:
 	@echo "... runtest"
 	@echo "... test.testbin"
 	@echo "... extract_features"
+	@echo "... convert_plateset"
+	@echo "... test_net"
 	@echo "... device_query"
 	@echo "... convert_imageset"
-	@echo "... test_net"
+	@echo "... caffe.bin"
 	@echo "... net_speed_benchmark"
 	@echo "... compute_image_mean"
 	@echo "... train_net"
@@ -525,7 +540,6 @@ help:
 	@echo "... upgrade_net_proto_binary"
 	@echo "... upgrade_net_proto_text"
 	@echo "... upgrade_solver_proto_text"
-	@echo "... caffe.bin"
 	@echo "... classification"
 	@echo "... captcha_prediction"
 	@echo "... convert_mnist_data"

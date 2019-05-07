@@ -140,6 +140,63 @@ bool ReadImageToDatum(const string& filename, const int label,
     return false;
   }
 }
+
+bool ReadImageToDatum(const string& filename, const cv::Rect roi, const int label,
+    const int height, const int width, const bool is_color,
+    const std::string & encoding, Datum* datum) {
+  cv::Mat cv_img = ReadImageToCVMat(filename, height, width, is_color);
+  cv_img = cv_img(roi);
+  if (cv_img.data) {
+    if (encoding.size()) {
+      if ( (cv_img.channels() == 3) == is_color && !height && !width &&
+          matchExt(filename, encoding) )
+        return ReadFileToDatum(filename, label, datum);
+      std::vector<uchar> buf;
+      cv::imencode("."+encoding, cv_img, buf);
+      datum->set_data(std::string(reinterpret_cast<char*>(&buf[0]),
+                      buf.size()));
+      datum->set_label(label);
+      datum->set_encoded(true);
+      return true;
+    }
+    CVMatToDatum(cv_img, datum);
+    datum->set_label(label);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+inline bool ReadRichImageToCharacterDatum(const string filename, const string labels, const int height,
+    const int width, const bool is_color, const string encoding, CharacterDatum* character_datum) {
+
+
+
+  character_datum->clear_label();
+  vector<string> label_lines;
+  // x1_y1_x2_y2_p1_p2_p3_p4_p5_p6_p7
+  boost::split(label_lines, labels, boost::is_any_of("_"));
+  int x1, y1, x2, y2;
+  x1 = atoi(label_lines[0].c_str());
+  y1 = atoi(label_lines[1].c_str());
+  x2 = atoi(label_lines[2].c_str());
+  y2 = atoi(label_lines[3].c_str());
+  cv::Rect roi = cv::Rect(x1,y1, x2-x1, y2-y1);
+  bool status = ReadImageToDatum(filename, -1, height, width, is_color,
+                                 encoding, character_datum->mutable_datum());
+  if (status == false) {
+    return status;
+  }
+  int lab;
+  for (int i = 4; i < label_lines.size(); ++i) {
+     lab = atoi(label_lines[3].c_str());
+    character_datum->add_label(lab);
+  }
+
+  return true;
+
+}
+
 #endif  // USE_OPENCV
 
 bool ReadFileToDatum(const string& filename, const int label,

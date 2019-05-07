@@ -92,6 +92,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "include"
   "../include"
   "."
+  "../build/include"
   "/usr/include/hdf5/serial"
   "/usr/local/cuda/include"
   "/home/rui/libs/opencv-3.4/opencv-3.4/build"

@@ -2,6 +2,8 @@
 #define CAFFE_UTIL_IO_H_
 
 #include <boost/filesystem.hpp>
+#include <boost/algorithm/string.hpp>
+#include <opencv2/core/types.hpp>
 #include <iomanip>
 #include <iostream>  // NOLINT(readability/streams)
 #include <string>
@@ -106,6 +108,10 @@ inline bool ReadImageToDatum(const string& filename, const int label,
                           "", datum);
 }
 
+bool ReadImageToDatum(const string& filename, const cv::Rect roi, const int label,
+    const int height, const int width, const bool is_color,
+    const std::string & encoding, Datum* datum);
+
 inline bool ReadImageToDatum(const string& filename, const int label,
     const int height, const int width, Datum* datum) {
   return ReadImageToDatum(filename, label, height, width, true, datum);
@@ -125,6 +131,10 @@ inline bool ReadImageToDatum(const string& filename, const int label,
     const std::string & encoding, Datum* datum) {
   return ReadImageToDatum(filename, label, 0, 0, true, encoding, datum);
 }
+
+inline bool ReadRichImageToCharacterDatum(const string filename, const string labels,const int height,
+    const int width,
+    const bool is_color, const string encoding, CharacterDatum* character_datum);
 
 bool DecodeDatumNative(Datum* datum);
 bool DecodeDatum(Datum* datum, bool is_color);

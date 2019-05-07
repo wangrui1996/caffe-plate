@@ -32,9 +32,12 @@
 /home/rui/repos/warpctc-caffe/cmake-build-debug/src/caffe/test/CMakeFiles/install.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/install/strip.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/extract_features.dir
+/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/convert_plateset.dir
+/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/test_net.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/device_query.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/convert_imageset.dir
-/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/test_net.dir
+/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/install.dir
+/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/caffe.bin.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/install/local.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/net_speed_benchmark.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/compute_image_mean.dir
@@ -46,8 +49,6 @@
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/upgrade_solver_proto_text.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/edit_cache.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/rebuild_cache.dir
-/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/caffe.bin.dir
-/home/rui/repos/warpctc-caffe/cmake-build-debug/tools/CMakeFiles/install.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/examples/CMakeFiles/install/strip.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/examples/CMakeFiles/install.dir
 /home/rui/repos/warpctc-caffe/cmake-build-debug/examples/CMakeFiles/list_install_components.dir

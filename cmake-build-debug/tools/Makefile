@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -111,18 +123,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/rui/softs/clion-2018.3.4/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -172,6 +172,36 @@ extract_features/fast:
 .PHONY : extract_features/fast
 
 # Convenience name for target.
+tools/CMakeFiles/convert_plateset.dir/rule:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/convert_plateset.dir/rule
+.PHONY : tools/CMakeFiles/convert_plateset.dir/rule
+
+# Convenience name for target.
+convert_plateset: tools/CMakeFiles/convert_plateset.dir/rule
+
+.PHONY : convert_plateset
+
+# fast build rule for target.
+convert_plateset/fast:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/build
+.PHONY : convert_plateset/fast
+
+# Convenience name for target.
+tools/CMakeFiles/test_net.dir/rule:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/test_net.dir/rule
+.PHONY : tools/CMakeFiles/test_net.dir/rule
+
+# Convenience name for target.
+test_net: tools/CMakeFiles/test_net.dir/rule
+
+.PHONY : test_net
+
+# fast build rule for target.
+test_net/fast:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
+.PHONY : test_net/fast
+
+# Convenience name for target.
 tools/CMakeFiles/device_query.dir/rule:
 	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/device_query.dir/rule
 .PHONY : tools/CMakeFiles/device_query.dir/rule
@@ -202,19 +232,19 @@ convert_imageset/fast:
 .PHONY : convert_imageset/fast
 
 # Convenience name for target.
-tools/CMakeFiles/test_net.dir/rule:
-	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/test_net.dir/rule
-.PHONY : tools/CMakeFiles/test_net.dir/rule
+tools/CMakeFiles/caffe.bin.dir/rule:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/caffe.bin.dir/rule
+.PHONY : tools/CMakeFiles/caffe.bin.dir/rule
 
 # Convenience name for target.
-test_net: tools/CMakeFiles/test_net.dir/rule
+caffe.bin: tools/CMakeFiles/caffe.bin.dir/rule
 
-.PHONY : test_net
+.PHONY : caffe.bin
 
 # fast build rule for target.
-test_net/fast:
-	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
-.PHONY : test_net/fast
+caffe.bin/fast:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
+.PHONY : caffe.bin/fast
 
 # Convenience name for target.
 tools/CMakeFiles/net_speed_benchmark.dir/rule:
@@ -321,21 +351,6 @@ upgrade_solver_proto_text/fast:
 	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/upgrade_solver_proto_text.dir/build.make tools/CMakeFiles/upgrade_solver_proto_text.dir/build
 .PHONY : upgrade_solver_proto_text/fast
 
-# Convenience name for target.
-tools/CMakeFiles/caffe.bin.dir/rule:
-	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/caffe.bin.dir/rule
-.PHONY : tools/CMakeFiles/caffe.bin.dir/rule
-
-# Convenience name for target.
-caffe.bin: tools/CMakeFiles/caffe.bin.dir/rule
-
-.PHONY : caffe.bin
-
-# fast build rule for target.
-caffe.bin/fast:
-	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
-.PHONY : caffe.bin/fast
-
 caffe.o: caffe.cpp.o
 
 .PHONY : caffe.o
@@ -416,6 +431,33 @@ convert_imageset.s: convert_imageset.cpp.s
 convert_imageset.cpp.s:
 	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/convert_imageset.dir/build.make tools/CMakeFiles/convert_imageset.dir/convert_imageset.cpp.s
 .PHONY : convert_imageset.cpp.s
+
+convert_plateset.o: convert_plateset.cpp.o
+
+.PHONY : convert_plateset.o
+
+# target to build an object file
+convert_plateset.cpp.o:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/convert_plateset.cpp.o
+.PHONY : convert_plateset.cpp.o
+
+convert_plateset.i: convert_plateset.cpp.i
+
+.PHONY : convert_plateset.i
+
+# target to preprocess a source file
+convert_plateset.cpp.i:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/convert_plateset.cpp.i
+.PHONY : convert_plateset.cpp.i
+
+convert_plateset.s: convert_plateset.cpp.s
+
+.PHONY : convert_plateset.s
+
+# target to generate assembly for a file
+convert_plateset.cpp.s:
+	cd /home/rui/repos/warpctc-caffe/cmake-build-debug && $(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/convert_plateset.cpp.s
+.PHONY : convert_plateset.cpp.s
 
 device_query.o: device_query.cpp.o
 
@@ -668,9 +710,12 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... extract_features"
+	@echo "... convert_plateset"
+	@echo "... test_net"
 	@echo "... device_query"
 	@echo "... convert_imageset"
-	@echo "... test_net"
+	@echo "... install"
+	@echo "... caffe.bin"
 	@echo "... install/local"
 	@echo "... net_speed_benchmark"
 	@echo "... compute_image_mean"
@@ -682,8 +727,6 @@ help:
 	@echo "... upgrade_solver_proto_text"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... caffe.bin"
-	@echo "... install"
 	@echo "... caffe.o"
 	@echo "... caffe.i"
 	@echo "... caffe.s"
@@ -693,6 +736,9 @@ help:
 	@echo "... convert_imageset.o"
 	@echo "... convert_imageset.i"
 	@echo "... convert_imageset.s"
+	@echo "... convert_plateset.o"
+	@echo "... convert_plateset.i"
+	@echo "... convert_plateset.s"
 	@echo "... device_query.o"
 	@echo "... device_query.i"
 	@echo "... device_query.s"

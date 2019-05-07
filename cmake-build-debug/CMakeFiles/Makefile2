@@ -185,12 +185,12 @@ src/gtest/preinstall:
 src/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f src/gtest/CMakeFiles/gtest.dir/build.make src/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f src/gtest/CMakeFiles/gtest.dir/build.make src/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=69 "Built target gtest"
 .PHONY : src/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 src/gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 src/gtest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : src/gtest/CMakeFiles/gtest.dir/rule
@@ -337,7 +337,7 @@ src/caffe/test/CMakeFiles/runtest.dir/all: src/caffe/test/CMakeFiles/test.testbi
 
 # Build rule for subdir invocation for target.
 src/caffe/test/CMakeFiles/runtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 87
 	$(MAKE) -f CMakeFiles/Makefile2 src/caffe/test/CMakeFiles/runtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : src/caffe/test/CMakeFiles/runtest.dir/rule
@@ -371,7 +371,7 @@ src/caffe/test/CMakeFiles/test.testbin.dir/all: src/caffe/CMakeFiles/proto.dir/a
 
 # Build rule for subdir invocation for target.
 src/caffe/test/CMakeFiles/test.testbin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 87
 	$(MAKE) -f CMakeFiles/Makefile2 src/caffe/test/CMakeFiles/test.testbin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : src/caffe/test/CMakeFiles/test.testbin.dir/rule
@@ -396,9 +396,11 @@ clean: src/caffe/test/CMakeFiles/test.testbin.dir/clean
 
 # Convenience name for "all" pass in the directory.
 tools/all: tools/CMakeFiles/extract_features.dir/all
+tools/all: tools/CMakeFiles/convert_plateset.dir/all
+tools/all: tools/CMakeFiles/test_net.dir/all
 tools/all: tools/CMakeFiles/device_query.dir/all
 tools/all: tools/CMakeFiles/convert_imageset.dir/all
-tools/all: tools/CMakeFiles/test_net.dir/all
+tools/all: tools/CMakeFiles/caffe.bin.dir/all
 tools/all: tools/CMakeFiles/net_speed_benchmark.dir/all
 tools/all: tools/CMakeFiles/compute_image_mean.dir/all
 tools/all: tools/CMakeFiles/train_net.dir/all
@@ -406,15 +408,16 @@ tools/all: tools/CMakeFiles/finetune_net.dir/all
 tools/all: tools/CMakeFiles/upgrade_net_proto_binary.dir/all
 tools/all: tools/CMakeFiles/upgrade_net_proto_text.dir/all
 tools/all: tools/CMakeFiles/upgrade_solver_proto_text.dir/all
-tools/all: tools/CMakeFiles/caffe.bin.dir/all
 
 .PHONY : tools/all
 
 # Convenience name for "clean" pass in the directory.
 tools/clean: tools/CMakeFiles/extract_features.dir/clean
+tools/clean: tools/CMakeFiles/convert_plateset.dir/clean
+tools/clean: tools/CMakeFiles/test_net.dir/clean
 tools/clean: tools/CMakeFiles/device_query.dir/clean
 tools/clean: tools/CMakeFiles/convert_imageset.dir/clean
-tools/clean: tools/CMakeFiles/test_net.dir/clean
+tools/clean: tools/CMakeFiles/caffe.bin.dir/clean
 tools/clean: tools/CMakeFiles/net_speed_benchmark.dir/clean
 tools/clean: tools/CMakeFiles/compute_image_mean.dir/clean
 tools/clean: tools/CMakeFiles/train_net.dir/clean
@@ -422,7 +425,6 @@ tools/clean: tools/CMakeFiles/finetune_net.dir/clean
 tools/clean: tools/CMakeFiles/upgrade_net_proto_binary.dir/clean
 tools/clean: tools/CMakeFiles/upgrade_net_proto_text.dir/clean
 tools/clean: tools/CMakeFiles/upgrade_solver_proto_text.dir/clean
-tools/clean: tools/CMakeFiles/caffe.bin.dir/clean
 
 .PHONY : tools/clean
 
@@ -439,7 +441,7 @@ tools/CMakeFiles/extract_features.dir/all: src/caffe/CMakeFiles/caffe.dir/all
 tools/CMakeFiles/extract_features.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f tools/CMakeFiles/extract_features.dir/build.make tools/CMakeFiles/extract_features.dir/depend
 	$(MAKE) -f tools/CMakeFiles/extract_features.dir/build.make tools/CMakeFiles/extract_features.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=67 "Built target extract_features"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target extract_features"
 .PHONY : tools/CMakeFiles/extract_features.dir/all
 
 # Include target in all.
@@ -449,7 +451,7 @@ all: tools/CMakeFiles/extract_features.dir/all
 
 # Build rule for subdir invocation for target.
 tools/CMakeFiles/extract_features.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/extract_features.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : tools/CMakeFiles/extract_features.dir/rule
@@ -470,6 +472,82 @@ clean: tools/CMakeFiles/extract_features.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target tools/CMakeFiles/convert_plateset.dir
+
+# All Build rule for target.
+tools/CMakeFiles/convert_plateset.dir/all: src/caffe/CMakeFiles/caffe.dir/all
+tools/CMakeFiles/convert_plateset.dir/all: src/caffe/CMakeFiles/proto.dir/all
+	$(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/depend
+	$(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=66 "Built target convert_plateset"
+.PHONY : tools/CMakeFiles/convert_plateset.dir/all
+
+# Include target in all.
+all: tools/CMakeFiles/convert_plateset.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+tools/CMakeFiles/convert_plateset.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/convert_plateset.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
+.PHONY : tools/CMakeFiles/convert_plateset.dir/rule
+
+# Convenience name for target.
+convert_plateset: tools/CMakeFiles/convert_plateset.dir/rule
+
+.PHONY : convert_plateset
+
+# clean rule for target.
+tools/CMakeFiles/convert_plateset.dir/clean:
+	$(MAKE) -f tools/CMakeFiles/convert_plateset.dir/build.make tools/CMakeFiles/convert_plateset.dir/clean
+.PHONY : tools/CMakeFiles/convert_plateset.dir/clean
+
+# clean rule for target.
+clean: tools/CMakeFiles/convert_plateset.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target tools/CMakeFiles/test_net.dir
+
+# All Build rule for target.
+tools/CMakeFiles/test_net.dir/all: src/caffe/CMakeFiles/caffe.dir/all
+tools/CMakeFiles/test_net.dir/all: src/caffe/CMakeFiles/proto.dir/all
+	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/depend
+	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=97 "Built target test_net"
+.PHONY : tools/CMakeFiles/test_net.dir/all
+
+# Include target in all.
+all: tools/CMakeFiles/test_net.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+tools/CMakeFiles/test_net.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/test_net.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
+.PHONY : tools/CMakeFiles/test_net.dir/rule
+
+# Convenience name for target.
+test_net: tools/CMakeFiles/test_net.dir/rule
+
+.PHONY : test_net
+
+# clean rule for target.
+tools/CMakeFiles/test_net.dir/clean:
+	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/clean
+.PHONY : tools/CMakeFiles/test_net.dir/clean
+
+# clean rule for target.
+clean: tools/CMakeFiles/test_net.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target tools/CMakeFiles/device_query.dir
 
 # All Build rule for target.
@@ -477,7 +555,7 @@ tools/CMakeFiles/device_query.dir/all: src/caffe/CMakeFiles/caffe.dir/all
 tools/CMakeFiles/device_query.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f tools/CMakeFiles/device_query.dir/build.make tools/CMakeFiles/device_query.dir/depend
 	$(MAKE) -f tools/CMakeFiles/device_query.dir/build.make tools/CMakeFiles/device_query.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target device_query"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=67 "Built target device_query"
 .PHONY : tools/CMakeFiles/device_query.dir/all
 
 # Include target in all.
@@ -487,7 +565,7 @@ all: tools/CMakeFiles/device_query.dir/all
 
 # Build rule for subdir invocation for target.
 tools/CMakeFiles/device_query.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
 	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/device_query.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : tools/CMakeFiles/device_query.dir/rule
@@ -546,40 +624,40 @@ clean: tools/CMakeFiles/convert_imageset.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target tools/CMakeFiles/test_net.dir
+# Target rules for target tools/CMakeFiles/caffe.bin.dir
 
 # All Build rule for target.
-tools/CMakeFiles/test_net.dir/all: src/caffe/CMakeFiles/caffe.dir/all
-tools/CMakeFiles/test_net.dir/all: src/caffe/CMakeFiles/proto.dir/all
-	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/depend
-	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=97 "Built target test_net"
-.PHONY : tools/CMakeFiles/test_net.dir/all
+tools/CMakeFiles/caffe.bin.dir/all: src/caffe/CMakeFiles/caffe.dir/all
+tools/CMakeFiles/caffe.bin.dir/all: src/caffe/CMakeFiles/proto.dir/all
+	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/depend
+	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target caffe.bin"
+.PHONY : tools/CMakeFiles/caffe.bin.dir/all
 
 # Include target in all.
-all: tools/CMakeFiles/test_net.dir/all
+all: tools/CMakeFiles/caffe.bin.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-tools/CMakeFiles/test_net.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
-	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/test_net.dir/all
+tools/CMakeFiles/caffe.bin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
+	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/caffe.bin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
-.PHONY : tools/CMakeFiles/test_net.dir/rule
+.PHONY : tools/CMakeFiles/caffe.bin.dir/rule
 
 # Convenience name for target.
-test_net: tools/CMakeFiles/test_net.dir/rule
+caffe.bin: tools/CMakeFiles/caffe.bin.dir/rule
 
-.PHONY : test_net
-
-# clean rule for target.
-tools/CMakeFiles/test_net.dir/clean:
-	$(MAKE) -f tools/CMakeFiles/test_net.dir/build.make tools/CMakeFiles/test_net.dir/clean
-.PHONY : tools/CMakeFiles/test_net.dir/clean
+.PHONY : caffe.bin
 
 # clean rule for target.
-clean: tools/CMakeFiles/test_net.dir/clean
+tools/CMakeFiles/caffe.bin.dir/clean:
+	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/clean
+.PHONY : tools/CMakeFiles/caffe.bin.dir/clean
+
+# clean rule for target.
+clean: tools/CMakeFiles/caffe.bin.dir/clean
 
 .PHONY : clean
 
@@ -591,7 +669,7 @@ tools/CMakeFiles/net_speed_benchmark.dir/all: src/caffe/CMakeFiles/caffe.dir/all
 tools/CMakeFiles/net_speed_benchmark.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f tools/CMakeFiles/net_speed_benchmark.dir/build.make tools/CMakeFiles/net_speed_benchmark.dir/depend
 	$(MAKE) -f tools/CMakeFiles/net_speed_benchmark.dir/build.make tools/CMakeFiles/net_speed_benchmark.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=69 "Built target net_speed_benchmark"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target net_speed_benchmark"
 .PHONY : tools/CMakeFiles/net_speed_benchmark.dir/all
 
 # Include target in all.
@@ -601,7 +679,7 @@ all: tools/CMakeFiles/net_speed_benchmark.dir/all
 
 # Build rule for subdir invocation for target.
 tools/CMakeFiles/net_speed_benchmark.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/net_speed_benchmark.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : tools/CMakeFiles/net_speed_benchmark.dir/rule
@@ -629,7 +707,7 @@ tools/CMakeFiles/compute_image_mean.dir/all: src/caffe/CMakeFiles/caffe.dir/all
 tools/CMakeFiles/compute_image_mean.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f tools/CMakeFiles/compute_image_mean.dir/build.make tools/CMakeFiles/compute_image_mean.dir/depend
 	$(MAKE) -f tools/CMakeFiles/compute_image_mean.dir/build.make tools/CMakeFiles/compute_image_mean.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=63 "Built target compute_image_mean"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target compute_image_mean"
 .PHONY : tools/CMakeFiles/compute_image_mean.dir/all
 
 # Include target in all.
@@ -639,7 +717,7 @@ all: tools/CMakeFiles/compute_image_mean.dir/all
 
 # Build rule for subdir invocation for target.
 tools/CMakeFiles/compute_image_mean.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/compute_image_mean.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : tools/CMakeFiles/compute_image_mean.dir/rule
@@ -850,44 +928,6 @@ clean: tools/CMakeFiles/upgrade_solver_proto_text.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target tools/CMakeFiles/caffe.bin.dir
-
-# All Build rule for target.
-tools/CMakeFiles/caffe.bin.dir/all: src/caffe/CMakeFiles/caffe.dir/all
-tools/CMakeFiles/caffe.bin.dir/all: src/caffe/CMakeFiles/proto.dir/all
-	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/depend
-	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=61 "Built target caffe.bin"
-.PHONY : tools/CMakeFiles/caffe.bin.dir/all
-
-# Include target in all.
-all: tools/CMakeFiles/caffe.bin.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-tools/CMakeFiles/caffe.bin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
-	$(MAKE) -f CMakeFiles/Makefile2 tools/CMakeFiles/caffe.bin.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
-.PHONY : tools/CMakeFiles/caffe.bin.dir/rule
-
-# Convenience name for target.
-caffe.bin: tools/CMakeFiles/caffe.bin.dir/rule
-
-.PHONY : caffe.bin
-
-# clean rule for target.
-tools/CMakeFiles/caffe.bin.dir/clean:
-	$(MAKE) -f tools/CMakeFiles/caffe.bin.dir/build.make tools/CMakeFiles/caffe.bin.dir/clean
-.PHONY : tools/CMakeFiles/caffe.bin.dir/clean
-
-# clean rule for target.
-clean: tools/CMakeFiles/caffe.bin.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Directory level rules for directory examples
 
 # Convenience name for "all" pass in the directory.
@@ -959,7 +999,7 @@ examples/CMakeFiles/captcha_prediction.dir/all: src/caffe/CMakeFiles/caffe.dir/a
 examples/CMakeFiles/captcha_prediction.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f examples/CMakeFiles/captcha_prediction.dir/build.make examples/CMakeFiles/captcha_prediction.dir/depend
 	$(MAKE) -f examples/CMakeFiles/captcha_prediction.dir/build.make examples/CMakeFiles/captcha_prediction.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target captcha_prediction"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=61 "Built target captcha_prediction"
 .PHONY : examples/CMakeFiles/captcha_prediction.dir/all
 
 # Include target in all.
@@ -969,7 +1009,7 @@ all: examples/CMakeFiles/captcha_prediction.dir/all
 
 # Build rule for subdir invocation for target.
 examples/CMakeFiles/captcha_prediction.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
 	$(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/captcha_prediction.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : examples/CMakeFiles/captcha_prediction.dir/rule
@@ -997,7 +1037,7 @@ examples/CMakeFiles/convert_mnist_data.dir/all: src/caffe/CMakeFiles/caffe.dir/a
 examples/CMakeFiles/convert_mnist_data.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f examples/CMakeFiles/convert_mnist_data.dir/build.make examples/CMakeFiles/convert_mnist_data.dir/depend
 	$(MAKE) -f examples/CMakeFiles/convert_mnist_data.dir/build.make examples/CMakeFiles/convert_mnist_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=65 "Built target convert_mnist_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target convert_mnist_data"
 .PHONY : examples/CMakeFiles/convert_mnist_data.dir/all
 
 # Include target in all.
@@ -1007,7 +1047,7 @@ all: examples/CMakeFiles/convert_mnist_data.dir/all
 
 # Build rule for subdir invocation for target.
 examples/CMakeFiles/convert_mnist_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/convert_mnist_data.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : examples/CMakeFiles/convert_mnist_data.dir/rule
@@ -1035,7 +1075,7 @@ examples/CMakeFiles/convert_cifar_data.dir/all: src/caffe/CMakeFiles/caffe.dir/a
 examples/CMakeFiles/convert_cifar_data.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f examples/CMakeFiles/convert_cifar_data.dir/build.make examples/CMakeFiles/convert_cifar_data.dir/depend
 	$(MAKE) -f examples/CMakeFiles/convert_cifar_data.dir/build.make examples/CMakeFiles/convert_cifar_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num= "Built target convert_cifar_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=63 "Built target convert_cifar_data"
 .PHONY : examples/CMakeFiles/convert_cifar_data.dir/all
 
 # Include target in all.
@@ -1045,7 +1085,7 @@ all: examples/CMakeFiles/convert_cifar_data.dir/all
 
 # Build rule for subdir invocation for target.
 examples/CMakeFiles/convert_cifar_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 62
 	$(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/convert_cifar_data.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles 0
 .PHONY : examples/CMakeFiles/convert_cifar_data.dir/rule
@@ -1073,7 +1113,7 @@ examples/CMakeFiles/convert_mnist_siamese_data.dir/all: src/caffe/CMakeFiles/caf
 examples/CMakeFiles/convert_mnist_siamese_data.dir/all: src/caffe/CMakeFiles/proto.dir/all
 	$(MAKE) -f examples/CMakeFiles/convert_mnist_siamese_data.dir/build.make examples/CMakeFiles/convert_mnist_siamese_data.dir/depend
 	$(MAKE) -f examples/CMakeFiles/convert_mnist_siamese_data.dir/build.make examples/CMakeFiles/convert_mnist_siamese_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=66 "Built target convert_mnist_siamese_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rui/repos/warpctc-caffe/cmake-build-debug/CMakeFiles --progress-num=65 "Built target convert_mnist_siamese_data"
 .PHONY : examples/CMakeFiles/convert_mnist_siamese_data.dir/all
 
 # Include target in all.

@@ -40,6 +40,12 @@ message Datum {
   optional bool encoded = 7 [default = false];
 }
 
+message CharacterDatum {
+  optional Datum datum = 1;
+  repeated int32 label = 2;
+}
+
+
 message FillerParameter {
   // The filler type.
   optional string type = 1 [default = 'constant'];
